@@ -17,6 +17,28 @@
 
 인터넷을 일정한 공간으로 가정했을 때, 도메인이란 호스트에 대한 책임과 권한의 영역으로 물리적 실체인 **호스트** 관리하는 조직의 경계이다.
 
+#### 루트 도메인 (Root Domain)
+네임 스페이스에서 이름 해석의 출발지 역할을 수행하는 노드(서버)
+최상위 도메인 서버의 정보를 가지고 있다.
+
+전 세계에 13개의 원본 root 서버가 존재 (http://www.iana.org/domains/root/servers)
+
+#### 최상위 도메인 (Top Level Domain = TLD)
+국가 코드 최상이 도메인 (ccTLD : country code TLD)
+.kr, .jp 등
+일반 최상위 도메인 (gTLD = global TLD)
+.net, .com, org 등
+ARPA : 역방향 조회 시 사용되는 최상위 도메인
+in-addr.arpa
+#### 2차 도메인 (Second Level Domain, Sub Domain)
+TLD 하위에서 관리되는 서브 도메인
+국가 도메인 하위에 기관 유형에 따른 분류
+.co (일반회사), .ac (교육기관), .go (정부기관) 등
+#### 서브 도메인 (Sub Domain)
+상위 도메인에 소속되는 각 기관 또는 회사별 도메인
+ex : google, naver 등
+하위 노드는 무한정 만들 수 있지만 주소를 이룰 수 있는 문자 수에 제한이 있다 (255byte).
+
 1. 거대한 분산 네이밍 시스템
 
 2. 계층적 구조
