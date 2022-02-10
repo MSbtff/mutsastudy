@@ -44,14 +44,48 @@
 3. 이메일 호스트 정보
 
 
-도메인 이름을 ip주소로 변ㄹ환
 
 ### 리졸버 (Resolver)
 
 리졸버는 도메인 네임의 데이터 조회기능을 수행하는 SW 라이브러리 형태의 루틴으로 도메인 네임과 조회대상 레코드 타입을 받아 인터넷 상에서 해당 도메인이 설정되어 있는 서버를 자동으로 추적 탐색하여 최종 결과를 주는 기능으로 도메인 네임 시스템이 분산방식으로 산재하여 이를 조회하기 위해 리졸버가 필요하다.
 
 현재 인터넷에서는 리졸버는 DNS 질의 응답 트래픽의 질감 및 효율성을 위해 데이터 캐싱 기능을 갖는 별도의 시스템인 리커시브 네임서버로 주로 구현하여 구성하고 있다.
+
 <img src="https://t1.daumcdn.net/cfile/tistory/994D08335A296B1318">
 
 
 ## DNS 작동원리 
+
+표면적으로 홈페이지(www)라는 관문을 통해 연결되어 있는 각종 서비스를 이용하지만 사실은 www서버, 메일 서버, 도메인 서버, 호스팅 서버가 서비스를 제공하는 것으로 각 서버들의 정보(ip와 서버 이름)을 가지고 있는 도메인 네임서버가 작동하는 것이다.
+
+예를 들어 www.gabia.com은 
+
+1. www는 호스트 이름
+2. gabia는 호스트 관리 기관 영역
+3. com은 최상위 영역
+
+<img src="http://library.gabia.com/wp-content/uploads/2016/09/DNS-%EC%9E%91%EB%8F%99-%EB%B0%A9%EC%8B%9D.png">
+
+1. 웹 브라우저에 www.gabia.com을 입력하면 먼저 Local DNS에게 www.gabia.com 이라는 hostname에 대한 ip 주소를 질의하여 Local DNS에 없으면 다른 네임서버 정보를 받는데 이때 Root DNS(루트 네임서버)정보를 전달받는다
+
+#### 루트 네임서버
+
+Root DNS는 인터넷의 도메인 네임 시스템의 루트 존으로 루트존의 레코드 요청에 직접 응답하고 적절한 최상위 도메인에 대한 권한이 있는 네임서버 목록을 반환함으로써 요청에 응답한다.
+
+2. Root DNS 서버에 www.gaiba.com 질의
+
+3. Root DNS 서버로부터 com 도메인을 관리하는 TLD(Top-Level domain)이름 서버 정보 전달 받는다.
+
+4. TLD에 www.gabia.com 질의
+5. TLD에서 gaiba.com 관리하는 DNS정보 전달
+6. gaiba.com 도메인을 관리하는 DNS 서버에 www.gabia.com 호스트네임에 대한 ip 주소 질의
+7. Local DNS 서버에게 IP 211.115.83.234 응답
+8. Local DNS는 www.gabia.com에 대한 ip주소를 캐싱하고 정보 전달
+
+만약 최근 방문 기록에 www.gabia.com있을시 호스트 정보를 가지고 곧 바로 gabia의 www서버를 찾아 접속이 가능하고 이러한 것을 캐시 서버라 하여 즉시 응답할 수 있도록 하는 역할을 합니다.
+
+이 네임서버는 모든 영역을 관리하는 ICANN(국제 인터넷주소 관리 기구)산하의 IANA가 있다.
+
+<img src="https://media.vlpt.us/images/goban/post/
+679d8a2b-1933-4850-95b9-c13765b9ff6c/TLD.jpg">
+
