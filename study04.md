@@ -66,11 +66,11 @@
 
 <img src="http://library.gabia.com/wp-content/uploads/2016/09/DNS-%EC%9E%91%EB%8F%99-%EB%B0%A9%EC%8B%9D.png">
 
-1. 웹 브라우저에 www.gabia.com을 입력하면 먼저 Local DNS에게 www.gabia.com 이라는 hostname에 대한 ip 주소를 질의하여 Local DNS에 없으면 다른 네임서버 정보를 받는데 이때 Root DNS(루트 네임서버)정보를 전달받는다
-
 #### 루트 네임서버
 
 Root DNS는 인터넷의 도메인 네임 시스템의 루트 존으로 루트존의 레코드 요청에 직접 응답하고 적절한 최상위 도메인에 대한 권한이 있는 네임서버 목록을 반환함으로써 요청에 응답한다.
+
+1. 웹 브라우저에 www.gabia.com을 입력하면 먼저 Local DNS에게 www.gabia.com 이라는 hostname에 대한 ip 주소를 질의하여 Local DNS에 없으면 다른 네임서버 정보를 받는데 이때 Root DNS(루트 네임서버)정보를 전달받는다
 
 2. Root DNS 서버에 www.gaiba.com 질의
 
